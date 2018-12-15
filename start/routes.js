@@ -21,3 +21,10 @@ Route.on('/').render('welcome')
 Route.get('/posts', () => 'List of get posts')
 
 Route.post('/posts', () => 'post moeths has created')
+
+
+// 路由参数
+Route.get('/postsWidthParams/:id', ({ params }) => {
+    return `you're watching post ${params.id}.`
+
+})
