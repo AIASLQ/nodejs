@@ -20,7 +20,13 @@ Route.on('/').render('welcome')
 
 Route.get('/posts', 'PostController.index')
 
-Route.post('/posts', () => 'post moeths has created')
+// Route.post('/posts', () => 'post moeths has created')
+
+// delete 删除
+Route.delete('/posts/:id', 'PostController.delete')
+
+// 编辑数据
+Route.post('/posts', 'PostController.edit')
 
 // 路由参数
 Route.get('/postsWidthParams/:id', ({ params }) => {
