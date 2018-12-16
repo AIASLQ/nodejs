@@ -18,7 +18,7 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-Route.get('/posts', () => 'List of get posts')
+Route.get('/posts', 'PostController.index')
 
 Route.post('/posts', () => 'post moeths has created')
 
