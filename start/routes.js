@@ -19,6 +19,7 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 
 Route.resource('posts', 'PostController')
+Route.get('posts', 'PostController')
 
 Route.get('/users', ({ request }) => {
 
@@ -36,3 +37,11 @@ Route.get('/users', ({ request }) => {
     }
 
 }).formats(['json', 'html'], true)
+
+// 路由需要共享一些特性 有相同的前缀 域名 中间件
+Route
+    .group(() => {
+        Route.get('users', () => 'Manage users')
+        Route.get('posts', () => 'admin users')
+    })
+    .prefix('admin')
