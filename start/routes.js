@@ -45,6 +45,6 @@ Route.group(() => {
 }).prefix('admin')
 
 
-// 前后端分离 后端只负责接口部分 只为前段提供数据
+// 前后端分离 后端只负责接口部分 只为前段提供数据 
 Route.any('we', ({ view }) => view.render('welcome'))
 Route.any('wes', ({ view }) => view.render('welcome'))
