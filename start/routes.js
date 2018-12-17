@@ -17,3 +17,5 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+Route.get('/posts', ({ request }) => request.get() /** 获取请求参*/ )
