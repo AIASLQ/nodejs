@@ -18,33 +18,21 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-Route.get('/posts', 'PostController.index')
+Route.resource('posts', 'PostController')
 
-// Route.post('/posts', () => 'post moeths has created')
+Route.get('/users', ({ request }) => {
 
-// delete 删除
-Route.delete('/posts/:id', 'PostController.delete')
+    switch (request.format()) {
+        case 'json':
+            return [
+                { name: 'sfsf' },
+                { name: 'dvadvdv' }
+            ]
+        default:
+            return `
+        --dfsddf
+        --sdvds
+        `
+    }
 
-// 编辑数据
-Route.post('/posts', 'PostController.edit')
-
-// 路由参数
-Route.get('/postsWidthParams/:id', ({ params }) => {
-    return `you're watching post ${params.id}.`
-
-})
-
-// patch/put 修改
-Route.patch('/postsWidthParams/:id', ({ params }) => {
-    return `Post ${params.id}  as been update.`
-})
-
-// patch/put 修改
-Route.put('/postsWidthParams/:id', ({ params }) => {
-    return `Post ${params.id} has been update.`
-})
-
-// delete 删除
-Route.delete('/postsWidthParams/:id', ({ params }) => {
-    return `Post ${params.id} has been delete.`
-})
+}).formats(['json', 'html'], true)
